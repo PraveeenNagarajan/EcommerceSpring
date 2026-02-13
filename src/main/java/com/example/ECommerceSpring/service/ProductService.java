@@ -8,6 +8,8 @@ import com.example.ECommerceSpring.repository.CategoryRepository;
 import com.example.ECommerceSpring.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService implements IProductService{
     private final ProductRepository productRepository;
@@ -37,6 +39,10 @@ public class ProductService implements IProductService{
         return ProductMapper.toDto(saved);
     }
 
+    @Override
+    public List<ProductDTO> getAllProducts() {
+        return productRepository.findAll().stream().map(ProductMapper::toDto).toList();
+    }
 
 
 }

@@ -5,6 +5,8 @@ import com.example.ECommerceSpring.service.IProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
@@ -14,6 +16,11 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @GetMapping
+    public ResponseEntity<List<ProductDTO>> getAllProducts(){
+        List<ProductDTO>result = productService.getAllProducts();
+        return ResponseEntity.ok(result);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> getProductbyId(@PathVariable Long id) throws Exception {
         ProductDTO result = this.productService.getProductById(id);
