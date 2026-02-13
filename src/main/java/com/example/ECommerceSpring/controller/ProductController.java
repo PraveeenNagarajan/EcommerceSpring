@@ -1,0 +1,27 @@
+package com.example.ECommerceSpring.controller;
+
+import com.example.ECommerceSpring.dto.ProductDTO;
+import com.example.ECommerceSpring.service.IProductService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/product")
+public class ProductController {
+    private final IProductService productService;
+
+    public ProductController(IProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductDTO> getProductbyId(@PathVariable Long id) throws Exception {
+        ProductDTO result = this.productService.getProductById(id);
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping()
+    public ResponseEntity<ProductDTO> CreateProduct(@RequestBody ProductDTO dto){
+        return ResponseEntity.ok(productService.createProduct(dto));
+    }
+}
