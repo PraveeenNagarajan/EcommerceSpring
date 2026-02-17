@@ -1,5 +1,6 @@
 package com.example.ECommerceSpring.mapper;
 
+import com.example.ECommerceSpring.dto.ProductCategoryDTO;
 import com.example.ECommerceSpring.dto.ProductDTO;
 import com.example.ECommerceSpring.entity.Category;
 import com.example.ECommerceSpring.entity.Product;
@@ -20,6 +21,15 @@ public class ProductMapper {
                 .name(dto.getName())
                 .brand(dto.getBrand())
                 .price(dto.getPrice())
+                .build();
+    }
+
+    public static ProductCategoryDTO toProductWithCategoryDTO(Product product){
+        return ProductCategoryDTO.builder()
+                .name(product.getName())
+                .brand(product.getBrand())
+                .price(product.getPrice())
+                .category(CategoryMapper.toDto(product.getCategory()))
                 .build();
     }
 }

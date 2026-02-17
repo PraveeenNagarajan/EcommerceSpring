@@ -1,5 +1,6 @@
 package com.example.ECommerceSpring.service;
 
+import com.example.ECommerceSpring.dto.ProductCategoryDTO;
 import com.example.ECommerceSpring.dto.ProductDTO;
 import com.example.ECommerceSpring.entity.Category;
 import com.example.ECommerceSpring.entity.Product;
@@ -9,6 +10,7 @@ import com.example.ECommerceSpring.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService implements IProductService{
@@ -48,4 +50,12 @@ public class ProductService implements IProductService{
     public List<ProductDTO> rangeQuery(double min, double max) {
         return productRepository.rangeQuery(min,max).stream().map(ProductMapper::toDto).toList();
     }
+
+    @Override
+    public ProductCategoryDTO getProductWithCategory(Long id) throws Exception {
+        Product product = productRepository.findById(id).orElseThrow(() -> new Exception("Category not found !..."));
+        return ProductMapper.toProductWithCategoryDTO(product);
+    }
+
+
 }

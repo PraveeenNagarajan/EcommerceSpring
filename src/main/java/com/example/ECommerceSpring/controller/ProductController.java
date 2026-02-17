@@ -1,5 +1,6 @@
 package com.example.ECommerceSpring.controller;
 
+import com.example.ECommerceSpring.dto.ProductCategoryDTO;
 import com.example.ECommerceSpring.dto.ProductDTO;
 import com.example.ECommerceSpring.service.IProductService;
 import org.springframework.http.ResponseEntity;
@@ -35,5 +36,10 @@ public class ProductController {
     @GetMapping("/range")
     public ResponseEntity<List<ProductDTO>> rangeQuery(@RequestParam double min, @RequestParam double max){
         return ResponseEntity.ok(productService.rangeQuery(min,max));
+    }
+
+    @GetMapping("/{id}/details")
+    public ResponseEntity<ProductCategoryDTO> getProductWithCategory(@PathVariable Long id) throws Exception{
+        return ResponseEntity.ok(productService.getProductWithCategory(id));
     }
 }

@@ -14,7 +14,7 @@ public class Product extends BaseEntity{
     private String brand;
     private int price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 }
