@@ -31,4 +31,9 @@ public class ProductController {
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO dto){
         return ResponseEntity.ok(productService.createProduct(dto));
     }
+
+    @GetMapping("/range")
+    public ResponseEntity<List<ProductDTO>> rangeQuery(@RequestParam double min, @RequestParam double max){
+        return ResponseEntity.ok(productService.rangeQuery(min,max));
+    }
 }

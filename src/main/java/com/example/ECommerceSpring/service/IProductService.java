@@ -8,4 +8,5 @@ public interface IProductService {
     ProductDTO getProductById(Long id) throws Exception;
     ProductDTO createProduct(ProductDTO dto);
     List<ProductDTO> getAllProducts();
+    List<ProductDTO> rangeQuery(double min, double max);
 }

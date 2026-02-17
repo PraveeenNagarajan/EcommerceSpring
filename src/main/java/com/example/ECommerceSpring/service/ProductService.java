@@ -43,4 +43,9 @@ public class ProductService implements IProductService{
     public List<ProductDTO> getAllProducts() {
         return productRepository.findAll().stream().map(ProductMapper::toDto).toList();
     }
+
+    @Override
+    public List<ProductDTO> rangeQuery(double min, double max) {
+        return productRepository.rangeQuery(min,max).stream().map(ProductMapper::toDto).toList();
+    }
 }
