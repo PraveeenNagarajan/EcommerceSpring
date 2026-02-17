@@ -30,7 +30,7 @@ public class ProductService implements IProductService{
 
     @Override
     public ProductDTO createProduct(ProductDTO dto) {
-        Category category = categoryRepository.findById(dto.getCategoryId())
+        Category category = categoryRepository.findById(dto .getCategoryId())
                 .orElseThrow(() -> new RuntimeException(
                         "Category not found with id " + dto.getCategoryId()));
         Product product = ProductMapper.toEntity(dto);
@@ -43,6 +43,4 @@ public class ProductService implements IProductService{
     public List<ProductDTO> getAllProducts() {
         return productRepository.findAll().stream().map(ProductMapper::toDto).toList();
     }
-
-
 }

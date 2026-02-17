@@ -14,7 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class Category extends BaseEntity{
-    private String categoryName;
+    @Column(nullable = false,unique = true)
+    private String name;
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 }
