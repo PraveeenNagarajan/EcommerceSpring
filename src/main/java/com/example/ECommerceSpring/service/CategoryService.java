@@ -31,7 +31,7 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public CategoryDTO getCategoryByName(String name) {
-        Category result = categoryRepository.findByName(name);
+        Category result = categoryRepository.findByCategoryName(name);
         return CategoryMapper.toDto(result);
     }
 

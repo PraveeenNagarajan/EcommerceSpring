@@ -13,9 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "category")
 public class Category extends BaseEntity{
-    @Column(nullable = false,unique = true)
-    private String name;
+    @Column(name = "category_name",nullable = false,unique = true)
+    private String categoryName;
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 }

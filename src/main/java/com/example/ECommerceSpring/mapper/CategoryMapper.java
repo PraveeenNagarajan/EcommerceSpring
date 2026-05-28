@@ -8,13 +8,13 @@ public class CategoryMapper {
     public static CategoryDTO toDto(Category category){
         return CategoryDTO.builder()
                 .id(category.getId())
-                .name(category.getName())
+                .name(category.getCategoryName())
                 .build();
     }
 
     public static Category toEntity(CategoryDTO dto){
         return Category.builder()
-                .name(dto.getName())
+                .categoryName(dto.getName())
                 .build();
     }
 }

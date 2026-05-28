@@ -2,7 +2,11 @@ package com.example.ECommerceSpring.controller;
 
 import com.example.ECommerceSpring.dto.ProductCategoryDTO;
 import com.example.ECommerceSpring.dto.ProductDTO;
+import com.example.ECommerceSpring.entity.Product;
+import com.example.ECommerceSpring.exception.ProductNotFoundException;
 import com.example.ECommerceSpring.service.IProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
