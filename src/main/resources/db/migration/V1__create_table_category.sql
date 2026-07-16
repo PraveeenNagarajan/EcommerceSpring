@@ -4,3 +4,6 @@ CREATE TABLE category (
     created_at DATETIME,
     updated_at DATETIME
 );
+
+
+
